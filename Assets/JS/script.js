@@ -2,19 +2,28 @@ let rootEL = document.querySelector(".root");
 let timeDisplay = document.querySelector("#time-left");
 
 let testButton = document.querySelector("#test");
+let testButton2 = document.querySelector("#test2");
+
+let timerValue = 120;
 
 function startTimer()
 {
-    timerValue = 120;
+    
     let timeInterval = setInterval(
         function()
         {
-            timeDisplay.textContent = timerValue;
             timerValue--;
+            timeDisplay.textContent = timerValue;
+            
+            testButton2.addEventListener("click", e =>
+            {
+                timerValue -= 5;
+            });
 
-            if (timerValue === 0)
+            if (timerValue <= 0)
             {
                 clearInterval(timeInterval);
+                timeDisplay.textContent = "Game Over";
 
                 endGame();
             }
@@ -24,8 +33,15 @@ function startTimer()
 }
 
 
+function loseTime()
+{
+
+    timerValue = timerValue - 5;
+}
+
 testButton.addEventListener("click", e =>
 {
     startTimer();
-})
+});
+
 
