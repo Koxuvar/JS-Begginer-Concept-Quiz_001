@@ -5,7 +5,7 @@ The deployed application can be found here: https://koxuvar.github.io/JS-Beggine
 
 ## !For Learning purposes only. The answers are available directly in the attached script.js file and easily readible!
 
-##Description
+## Description
 
 The User is greeted by a welcome screen that explains the game and its parameters.
     * The game is 120 seconds long
