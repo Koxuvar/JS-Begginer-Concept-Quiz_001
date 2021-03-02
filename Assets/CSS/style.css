@@ -30,6 +30,10 @@ header{
     justify-content: space-evenly;
 }
 
+main{
+    padding: 2rem;
+}
+
 button{
     background-color: var(--accent1); /* Green */
     border: 1px solid var(--accent2);
@@ -59,7 +63,7 @@ button:focus{
     padding-left: .5rem;
 }
 
-.root{
+.flexify{
     display:flex;
     flex-flow: column nowrap;
     justify-content: center;
@@ -80,9 +84,6 @@ button:focus{
     padding: 2rem;
 }
 
-
-
-
 .questionSection{
     display: none;
 }
@@ -96,5 +97,9 @@ button:focus{
 
 #questionh1{
     padding: 1rem;
+}
+
+.hide{
+    display: none;
 }
 
