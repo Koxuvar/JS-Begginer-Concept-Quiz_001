@@ -76,7 +76,7 @@ let currentQuestion = 0; //used to select question and answer from arrays above
 let questionAlreadyAsked;
 let arrQuestionsAsked = [];//previously asked questions so no repeats
 let points = 0;//users score
-let arrhighScores = localStorage.highScores == null? localStorage.setItem('highScores') : JSON.parse(localStorage.highScores);
+let arrhighScores = localStorage.highScores == null? localStorage.setItem('highScores', JSON.stringify([])) : JSON.parse(localStorage.highScores);
 let highScoreVisible = false;
 
 
