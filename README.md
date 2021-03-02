@@ -5,7 +5,7 @@ The deployed application can be found here: https://koxuvar.github.io/JS-Beggine
 
 ## !For Learning purposes only. The answers are available directly in the attached script.js file and easily readible!
 
-##Description
+## Description
 
 The User is greeted by a welcome screen that explains the game and its parameters.
     * The game is 120 seconds long
@@ -18,6 +18,8 @@ Once the game starts the user is presented with a question and range of multiple
 When the clock runs out or if the user answers all the quiz questions, the game ends and the users score is presented along with an input box to enter their initials. When the player submits their initials to the form, the score and initials are added to the high score leader board.
 
 The high score leaderboard may be cleared at anytime.
+
+## Screenshots
 
 ![Welcome Page Screenshot](./Assets/Images/Screenshot1.png)
 ![Game ScreenShot](./Assets/Images/Screenshot2.png)
