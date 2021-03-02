@@ -19,6 +19,8 @@ When the clock runs out or if the user answers all the quiz questions, the game 
 
 The high score leaderboard may be cleared at anytime.
 
+## Screenshots
+
 ![Welcome Page Screenshot](./Assets/Images/Screenshot1.png)
 ![Game ScreenShot](./Assets/Images/Screenshot2.png)
 ![GameOver ScreenShot](./Assets/Images/Screenshot3.png)
