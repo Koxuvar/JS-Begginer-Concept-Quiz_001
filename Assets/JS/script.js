@@ -76,7 +76,7 @@ let currentQuestion = 0; //used to select question and answer from arrays above
 let questionAlreadyAsked;
 let arrQuestionsAsked = [];//previously asked questions so no repeats
 let points = 0;//users score
-let arrhighScores = JSON.parse(localStorage.highScores).sort((a, b) => b - a);
+let arrhighScores = JSON.parse(localStorage.highScores);
 let highScoreVisible = false;
 
 
@@ -92,17 +92,24 @@ function getRandomInt(max) {
     return Math.floor(Math.random() * Math.floor(max));
 }
 
+/*
+*addToHighScores
+*takes in a value and adds it to the {arrhighscores} array and stores that array in localStorage
+*/
 function addToHighScores(value)
 {
     arrhighScores.push(value);
-    arrhighScores.sort();
     
     localStorage.setItem("highScores",JSON.stringify(arrhighScores));
 }
 
+/*
+*getHighScores
+*takes the value for highScores in localStorage and displays them in the high scores DOM element
+*/
 function getHighScores()
 {
-    arrhighScores = JSON.parse(localStorage.highScores).sort((a, b) => b - a);
+    arrhighScores = JSON.parse(localStorage.highScores);
     clearNodes(highScores);
     arrhighScores.forEach( score =>
     {
@@ -112,11 +119,17 @@ function getHighScores()
     });
 }
 
+/*
+*clearHighScores
+*clears out the value for key highScores in local storage and calls getHighScores to update the DOM
+*/
 function clearHighScores()
 {
     localStorage.setItem('highScores', JSON.stringify([]));
     getHighScores();
 }
+
+
 
 /*
 * loseTime
@@ -130,7 +143,7 @@ function loseTime(event)
 
 /*
 * hideWelcome
-* utility function to clear the page of the welcome screen and display the question div
+* utility function to clear the page of the welcome screen and other elements and display the question div
 */
 function hideWelcome()
 {
@@ -140,7 +153,6 @@ function hideWelcome()
     showwHighScoresButton.style.display = "none";
     questionSection.style.display = "block";
     playAgainButton.style.display = "none";
-    highScoreBox.style.display = "none";
     highScoreVisible = false;
     showwHighScoresButton.style.display = "block";
     return;
@@ -248,7 +260,7 @@ function displayAnswers()
 /*-------------------------- GAME FUNCTIONS --------------------------*/
 /*
 *runGame
-* starts the game when the "Start Game" button is pressed. 
+* starts the game when the "Start Game" button is pressed. initializes game params as well.
 */
 function runGame()
 {
@@ -268,6 +280,7 @@ function endGame()
 {
     timeDisplay.textContent = "Game Over";
     highScoreBox.style.display = "block";
+    highScoreVisible = true;
     questionSection.style.display = "none";
     scoreForm.style.display = "block";
     playAgainButton.style.display = "block";
@@ -278,9 +291,14 @@ function endGame()
 
 /*-------------------------- EVENT LISTENERS --------------------------*/
 
-
+/*
+* Start the game with the start Button
+*/
 startButton.addEventListener("click", runGame);
 
+/*
+* Event listener for if an answer is selected and validates that answer against the correct index.
+*/
 questions.addEventListener("click", event =>
 {
     var isButton = event.target.nodeName === 'BUTTON';
@@ -304,6 +322,9 @@ questions.addEventListener("click", event =>
     }
 });
 
+/*
+* Toggles the High Scores Box
+*/
 showwHighScoresButton.addEventListener('click', event =>
 {
     event.stopPropagation();
@@ -321,6 +342,9 @@ showwHighScoresButton.addEventListener('click', event =>
     }
 });
 
+/*
+* Event listener for the enter key being pressed after a user enters their initials
+*/
 userInit.addEventListener('submit', e =>
 {
     e.preventDefault();
@@ -338,6 +362,9 @@ userInit.addEventListener('submit', e =>
 
 });
 
+/*
+* Event listener for the clear high scores button.
+*/
 clearScores.addEventListener('click', e =>
 {
     e.stopPropagation();
@@ -345,4 +372,7 @@ clearScores.addEventListener('click', e =>
     clearHighScores();
 });
 
+/*
+* Event listener for the play again button
+*/
 playAgainButton.addEventListener('click', runGame);

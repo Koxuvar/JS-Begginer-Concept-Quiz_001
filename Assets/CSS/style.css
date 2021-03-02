@@ -1,9 +1,11 @@
+/* reset the page to goo place to start from */
 *{
     padding: 0;
     margin: 0;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
+/* variables go here */
 :root{
     --dark1: rgb(37, 37, 37);
     --dark2: rgb(52, 52, 52);
@@ -15,6 +17,7 @@
     --accent2: rgb(255, 208, 0);
 }
 
+/* Element Selector Styling */
 body{
     background: var(--dark2);
     color: var(--light3);
@@ -54,13 +57,9 @@ button:focus{
     outline: none;
 }
 
+/* Class Selector Styling */
 .timer{
     float: left;
-}
-
-#time-left{
-    font-size: xx-large;
-    padding-left: .5rem;
 }
 
 .flexify{
@@ -88,6 +87,11 @@ button:focus{
     display: none;
 }
 
+/* needs to be lasy in this section to hide elements that have both the box class and the hide class */
+.hide{
+    display: none;
+}
+/* ID Selector Styling */
 #questions{
     display: flex;
     flex-flow: column nowrap;
@@ -99,7 +103,9 @@ button:focus{
     padding: 1rem;
 }
 
-.hide{
-    display: none;
+#time-left{
+    font-size: xx-large;
+    padding-left: .5rem;
 }
+
 
